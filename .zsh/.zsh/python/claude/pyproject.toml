@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "claude"
+version = "0.1.0"
+description = ""
+authors = ["Jonathan Ward <jonathanjward@pm.me>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+anthropic = "^0.29.0"
+argparse = "^1.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
