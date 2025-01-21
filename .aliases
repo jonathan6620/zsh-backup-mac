@@ -1,0 +1,89 @@
+# browsers
+alias safari='/Applications/Safari.app/Contents/MacOS/Safari'
+alias firefox='/Applications/Firefox.app/Contents/MacOS/firefox'
+
+function chrome() {
+    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome ${1}
+}
+
+function chrome_dev() {
+    /Applications/Google\ Chrome\ Dev.app/Contents/MacOS/Google\ Chrome\ Dev ${1}
+}
+
+# docker
+alias datascience-notebook='docker run -p 8888:8888 -v $(pwd):/home/jovyan jupyter/datascience-notebook' 
+alias scipy-notebook='docker run -p 8888:8888 -v $(pwd):/home/jovyan jupyter/scipy-notebook'
+alias pysyft-notebook='docker run -p 8888:8888 -v $(pwd):/workspace openmined/pysyft-notebook' 
+alias pyignore='wget https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore && mv Python.gitignore .gitignore'
+	
+# applications
+alias pycharm='${HOME}/Applications/PyCharm Professional Edition.app/Contents/MacOS/pycharm'
+
+# utilities
+function mkcd() {
+    mkdir -p $1;
+    cd $1;
+}
+alias op='open'
+alias oepn='open'
+alias opne='open'
+alias o='open'
+
+# scripts
+alias unformat='pbpaste | pbcopy'
+alias canonical='${HOME}/.zsh/python/get_canonical.py'
+alias decimal='${HOME}/.zsh/python/get_decimal.py'
+alias imgcat='${HOME}/.zsh/scripts/imgcat.sh'
+
+# javascript
+alias update-node-lts='nvm install "lts/*" --reinstall-packages-from="$(nvm current)"'
+alias update-node='nvm install node --reinstall-packages-from=node'
+alias update-npm='npm install -g npm@latest'
+
+# molstar
+alias molstar='http-server ~/.molstar --cors -p 3000 & ; chrome http://localhost:3000/build/viewer'
+
+# find root of git repository
+function gitlook() {
+    dir=.
+    if [[ "$#" -ge 1 ]]; then
+        dir=${1}
+    fi
+    grep '\[remote "origin"\]' -A 1 ${dir}/.git/config | tail -1 | cut -f 2 -d "="
+}
+
+# open page of git repo
+function gitweb() {
+    dir=.
+    if [[ "$#" -ge 1 ]]; then
+        dir=${1}
+    fi
+    firefox $(gitlook $dir)  
+}
+
+function aes_encrypt() {
+    if [ -z "$1" ]; then
+        echo "No file provided"
+        return 1
+    fi
+
+    if [ -n "$2" ]; then
+        account=$2
+    else
+        account="jonathanward"
+    fi
+    
+    if [ -n "$3" ]; then
+        service=$3
+    else
+        service="aws"
+    fi
+
+    openssl aes-256-cbc -pbkdf2 -in ${1} -out "${1}.enc" -pass pass:$(security find-generic-password -a ${account} -s ${service} -w)
+}
+
+
+# query LLMs 
+alias query_claude='function _f() {"${CLAUDE_ENV_PATH}"/bin/python3 ~/.zsh/python/claude/query_claude.py "$@" | glow; }; _f' 
+alias clq=query_claude
+
