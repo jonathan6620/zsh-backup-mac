@@ -2,4 +2,3 @@
 *.log
 .DS_Store
 # Add any other files/patterns you want to exclude
-.oh-my-zsh/.git
