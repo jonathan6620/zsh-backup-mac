@@ -86,5 +86,5 @@ function aes_encrypt() {
 # query LLMs 
 alias query_claude='function _f() {"${CLAUDE_ENV_PATH}"/bin/python3 ~/.zsh/python/claude/query_claude.py "$@" | glow; }; _f' 
 alias clq=query_claude
-alias gemini='~/.zsh/go/gemini'
+alias gemini='~/.zsh/go/gemini/gemini'
 
