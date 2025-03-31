@@ -88,3 +88,5 @@ alias query_claude='function _f() {"${CLAUDE_ENV_PATH}"/bin/python3 ~/.zsh/pytho
 alias clq=query_claude
 alias gemini='~/.zsh/go/gemini/gemini'
 
+# activate local venv
+alias vact='source .venv/bin/activate'

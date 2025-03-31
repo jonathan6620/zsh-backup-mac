@@ -40,4 +40,3 @@ export MAMBA_EXE=/opt/homebrew/bin/micromamba
 export MAMBA_ROOT_PREFIX=/Users/jonathanward/micromamba
 export PNPM_HOME=/Users/jonathanward/Library/pnpm
 export WASMTIME_HOME=/Users/jonathanward/.wasmtime
-
