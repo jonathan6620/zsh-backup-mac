@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/cuda/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -79,9 +79,8 @@ plugins=(git
 	colorize
 	pip
 	python
-	brew
 	zsh-syntax-highlighting
-	poetry)
+)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -107,41 +106,40 @@ source ~/.zshenv
 source ~/.aliases
 source ~/.zshkeys
 
-source "$(brew --prefix nvm)/nvm.sh"
-
 fpath=(~/.stripe $fpath)
 autoload -Uz compinit && compinit -i
 
+# Created by `pipx` on 2024-09-06 13:33:20
+export PATH="$PATH:${HOME}/.local/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # pnpm
-export PNPM_HOME="/Users/jonathanward/Library/pnpm"
+export PNPM_HOME="/home/jward/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-export WASMTIME_HOME="$HOME/.wasmtime"
 
-export PATH="$WASMTIME_HOME/bin:$PATH"
-export PATH="$HOME/.fuelup/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jonathanward/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/jward/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/jonathanward/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jonathanward/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/home/jward/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/home/jward/miniconda/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/jonathanward/miniforge3/bin:$PATH"
+        export PATH="/home/jward/miniconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
-
-if [ -f "/Users/jonathanward/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/Users/jonathanward/miniforge3/etc/profile.d/mamba.sh"
-fi
 # <<< conda initialize <<<
 
-# Created by `pipx` on 2024-09-06 13:33:20
-export PATH="$PATH:/Users/jonathanward/.local/bin"
+setterm -blength 0 2>/dev/null
+
