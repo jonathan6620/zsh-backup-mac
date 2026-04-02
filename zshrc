@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.zshenv
 source ~/.aliases
-source ~/.zshkeys
+[ -f ~/.zshkeys ] && source ~/.zshkeys
 
 fpath=(~/.stripe $fpath)
 autoload -Uz compinit && compinit -i
