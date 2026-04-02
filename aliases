@@ -12,21 +12,11 @@ alias vact='source .venv/bin/activate'
 alias python=python3
 alias ipython='uv run --with ipython ipython'
 
-# cursor
-alias cursor="${HOME}/Applications/Cursor-0.49.6-x86_64_92907bf3c7e486ace04f6ec539bc1ebd.AppImage --no-sandbox > /dev/null 2>&1"
-
 # shortcuts
-alias bat=batcat
-
-# linux to mac
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+alias bat='bat'
 
 # bioinformatics
 alias pymol='~/miniconda/envs/pymol-env/bin/pymol'
 
-# docker desktop
-alias ddtop='systemctl --user start docker-desktop'
-
 # general
-alias chrome='google chrome'
+alias chrome='open -a "Google Chrome"'

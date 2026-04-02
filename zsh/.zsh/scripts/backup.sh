@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # --- Configuration ---
-REPO_URL="https://github.com/jonathan6620/zsh-backup.git" 
-BACKUP_DIR="$HOME/zsh-backup"       
-ZSH_DIR="$HOME/.oh-my-zsh"         
+REPO_URL="https://github.com/jonathan6620/zsh-backup-mac.git"
+BACKUP_DIR="$HOME/zsh-backup-mac"       
 
 # Add any other directories you want to back up
-EXTRA_DIRS=("$HOME/.zshrc" "$HOME/.zsh" "$HOME/.zshenv" "$HOME/.aliases")
+TO_BACKUP=("$HOME/.zshrc" "$HOME/.zsh" "$HOME/.zshenv" "$HOME/.aliases" "$HOME/.config/zellij")
 
 # --- Functions ---
 
@@ -33,13 +32,8 @@ add_to_backup() {
 # Create backup directory if it doesn't exist
 mkdir -p "$BACKUP_DIR"
 
-# 1. Backup Oh My Zsh (if applicable)
-if [ -d "$ZSH_DIR" ]; then
-  add_to_backup "$ZSH_DIR"
-fi
-
-# 2. Backup Files in EXTRA_DIRS
-for dir in "${EXTRA_DIRS[@]}"; do
+# 1. Backup Files in TO_BACKUP 
+for dir in "${TO_BACKUP[@]}"; do
   add_to_backup "$dir"
 done
 
