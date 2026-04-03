@@ -15,5 +15,9 @@ alias ipython='uv run --with ipython ipython'
 # bioinformatics
 alias pymol='/opt/homebrew/Caskroom/miniconda/base/envs/pymol-env/bin/pymol'
 
+# clipboard
+alias unformat='pbpaste | pbcopy'
+
 # general
+alias op=open
 alias chrome='open -a "Google Chrome"'
