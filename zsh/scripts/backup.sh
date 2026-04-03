@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # --- Configuration ---
 REPO_URL="https://github.com/jonathan6620/zsh-backup-mac.git"
@@ -60,8 +60,15 @@ if [ ! -d ".git" ]; then
     git remote add origin "$REPO_URL"
 fi
 
-git add --all 
-git commit -m "Zsh backup: $(date)"
-git push -u origin main
+git add --all
+git status
 
-echo "Backup complete!"
+echo ""
+read -p "Commit and push these changes? [y/N] " confirm
+if [[ "$confirm" =~ ^[Yy]$ ]]; then
+  git commit -m "Zsh backup: $(date)"
+  git push -u origin main
+  echo "Backup complete!"
+else
+  echo "Aborted. Changes are staged but not committed."
+fi

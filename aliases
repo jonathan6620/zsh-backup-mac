@@ -12,11 +12,8 @@ alias vact='source .venv/bin/activate'
 alias python=python3
 alias ipython='uv run --with ipython ipython'
 
-# shortcuts
-alias bat='bat'
-
 # bioinformatics
-alias pymol='~/miniconda/envs/pymol-env/bin/pymol'
+alias pymol='/opt/homebrew/Caskroom/miniconda/base/envs/pymol-env/bin/pymol'
 
 # general
 alias chrome='open -a "Google Chrome"'

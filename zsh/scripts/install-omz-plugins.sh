@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
