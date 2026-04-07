@@ -6,7 +6,7 @@ BACKUP_DIR="$HOME/zsh-backup-mac"
 ZSH_DIR="$HOME/.oh-my-zsh"         
 
 # Add any other directories you want to back up
-EXTRA_DIRS=("$HOME/.zshrc" "$HOME/.zsh" "$HOME/.zshenv" "$HOME/.aliases" "$HOME/.config/zellij")
+EXTRA_DIRS=("$HOME/.zshrc" "$HOME/.zsh" "$HOME/.zshenv" "$HOME/.aliases" "$HOME/.gitconfig" "$HOME/.config/zellij")
 
 # --- Functions ---
 

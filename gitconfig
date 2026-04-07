@@ -1,0 +1,10 @@
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+[init]
+	defaultBranch = main
+[user]
+	name = jonathan6620
+	email = slimmcduff@pm.me
+[pull]
+	rebase = true

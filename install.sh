@@ -12,6 +12,7 @@ FILES=(
   "gitignore:$HOME/.gitignore"
   "zsh:$HOME/.zsh"
   "config/zellij:$HOME/.config/zellij"
+  "gitconfig:$HOME/.gitconfig"
 )
 
 copy_item() {
@@ -51,10 +52,6 @@ for entry in "${FILES[@]}"; do
 done
 
 echo ""
-echo "==> Setting global gitignore"
-git config --global core.excludesfile "$HOME/.gitignore"
-
-echo ""
 echo "==> Installing oh-my-zsh (if needed)"
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "  Installing oh-my-zsh..."
@@ -79,7 +76,7 @@ fi
 
 echo ""
 echo "==> Installing tools via Homebrew"
-brew_packages=(bat nvm zellij)
+brew_packages=(bat gh nvm zellij)
 for pkg in "${brew_packages[@]}"; do
   if brew list "$pkg" &>/dev/null; then
     echo "  ok: $pkg already installed"
