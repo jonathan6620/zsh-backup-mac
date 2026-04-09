@@ -18,6 +18,11 @@ alias pymol='/opt/homebrew/Caskroom/miniconda/base/envs/pymol-env/bin/pymol'
 # clipboard
 alias unformat='pbpaste | pbcopy'
 
+# networking
+alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'
+
 # general
 alias op=open
+alias opn=open
+alias oepn=open
 alias chrome='open -a "Google Chrome"'
