@@ -1,3 +1,10 @@
+# general
+alias ls='eza -s type --group-directories-first'
+alias op=open
+alias opn=open
+alias oepn=open
+alias chrome='open -a "Google Chrome"'
+
 # scripts
 alias canonical='${HOME}/.zsh/python/get_canonical.py'
 alias decimal='${HOME}/.zsh/python/get_decimal.py'
@@ -20,9 +27,18 @@ alias unformat='pbpaste | pbcopy'
 
 # networking
 alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'
+alias ts='tailscale'
 
-# general
-alias op=open
-alias opn=open
-alias oepn=open
-alias chrome='open -a "Google Chrome"'
+# zellij
+sshz() {
+  command ssh "$@"
+  printf '\e[?1000l\e[?1002l\e[?1003l\e[?1006l'
+  stty sane 2>/dev/null
+}
+alias zj1='zellij --layout ~/.config/zellij/layouts/1.kdl'
+alias zj2x2='zellij --layout ~/.config/zellij/layouts/2x2.kdl'
+alias zj2x4='zellij --layout ~/.config/zellij/layouts/2x4.kdl'
+alias zj4x2='zellij --layout ~/.config/zellij/layouts/4x2.kdl'
+
+# podman
+alias podman-compose='uv run podman-compose'
