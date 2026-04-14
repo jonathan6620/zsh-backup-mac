@@ -150,4 +150,12 @@ else
 fi
 
 echo ""
+echo "==> Configuring keyboard responsiveness"
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write -g ApplePressAndHoldEnabled -bool false
+echo "  set: KeyRepeat=1, InitialKeyRepeat=10, ApplePressAndHoldEnabled=false"
+echo "  note: log out and back in for key repeat changes to take effect"
+
+echo ""
 echo "==> Done! Restart your shell or run: source ~/.zshrc"
